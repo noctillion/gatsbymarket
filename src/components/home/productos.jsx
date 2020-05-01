@@ -10,7 +10,7 @@ class Products extends Component {
   }
 
   render() {
-    console.log("thisstate", this.state.items)
+    //console.log("thisstate", this.state.items)
     return <div></div>
   }
 }

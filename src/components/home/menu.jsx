@@ -37,7 +37,7 @@ class Menu extends Component {
   }
 
   render() {
-    console.log("categories", this.state.categories)
+    //console.log("categories", this.state.categories)
     if (this.state.items.length > 0) {
       return (
         <section className="menu py-5">
