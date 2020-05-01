@@ -1,8 +1,12 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `Market place`,
-    description: `Generic market place`,
-    author: `noctillion`,
+    title: `Gatsby MarketPlace`,
+    description: `Generic marketplace`,
+    author: `Noctillion`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,6 +31,20 @@ module.exports = {
         icon: `src/images/logo.svg`, // This path is relative to the root of the site.
       },
     },
+
+    {
+      resolve: `gatsby-source-mongodb`,
+      options: {
+        dbName: `marketplace`,
+        collection: [`coffeItem`, `coffeProduct`],
+        server: { address: `ds331548.mlab.com`, port: 31548 },
+        auth: {
+          user: process.env.MONGOUSER,
+          password: process.env.MONGOPASSWORD,
+        },
+      },
+    },
+    // gatsby-source-mongodb se conecta bn con graphql
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

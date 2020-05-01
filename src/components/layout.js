@@ -9,12 +9,18 @@ import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 import { useStaticQuery, graphql } from "gatsby"
+import Navbar from "./global/navbar"
+import Footer from "../components/global/footer"
 
 import "./layout.css"
 
-const Layout = ({ children }) => {
-  return <Fragment>{children}</Fragment>
-}
+const Layout = ({ children }) => (
+  <Fragment>
+    <Navbar />
+    {children}
+    <Footer />
+  </Fragment>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
